@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IProduct } from '../../services/product.service';
+import { IProduct, ProductService } from '../../services/product.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @Component({
@@ -11,5 +11,9 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 export class ProductCardComponent {
   @Input() product!: IProduct;
 
-  onEliminar() {}
+  constructor(private productService: ProductService) {}
+
+  onEliminar() {
+    this.productService.eliminarProducto(this.product._id);
+  }
 }

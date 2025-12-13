@@ -16,7 +16,9 @@ export class ProductsListComponents {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.products$ = this.productService.cargarProductos();
+    this.productService.cargarProductos();
+
+    this.products$ = this.productService.products$;
     // this.products$ = this.productService.cargarProductos().subscribe((datos) => {
     //   this.products$ = datos;
     //   console.log('Productos recibidos: ', datos);
