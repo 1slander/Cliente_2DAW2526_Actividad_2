@@ -1,0 +1,11 @@
+<h2 class="fw-semibold mb-3">Listado de Productos</h2>
+
+<div class="row g-4">
+  @for (product of (products$ | async); track product._id) {
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <app-product-card-component [product]="product"></app-product-card-component>
+  </div>
+  } @empty {
+  <p class="text-muted">No hay productos para mostrar…</p>
+  }
+</div>
