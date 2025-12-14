@@ -58,4 +58,26 @@ export class ProductService {
     this.productsOriginales = this.productsOriginales.filter((p) => p._id !== id);
     this.productsSubject.next(this.productsOriginales);
   }
+
+  filtrarPorNombre(nombre: string) {
+    const filtrados = this.productsOriginales.filter((p) =>
+      p.name.toLowerCase().includes(nombre.toLowerCase())
+    );
+    this.productsSubject.next(filtrados);
+  }
+
+  filtrarPorCategoria(categoria: string) {
+    const filtrados = this.productsOriginales.filter((p) =>
+      p.category.toLowerCase().includes(categoria.toLowerCase())
+    );
+    this.productsSubject.next(filtrados);
+  }
+
+  filtrarPorActivo(soloActivo: boolean) {
+    const filtrados = soloActivo
+      ? this.productsOriginales.filter((p) => p.active)
+      : this.productsOriginales;
+
+    this.productsSubject.next(filtrados);
+  }
 }

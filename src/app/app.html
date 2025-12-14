@@ -12,6 +12,7 @@
 
 <!-- CONTENIDO PRINCIPAL -->
 <main class="container mb-5 d-flex flex-column gap-5 bg-dark-subtle">
+  <app-product-filter />
   <app-products-list-components />
   <app-product-form-component (productCreated)="onProductoCreado($event)">
   </app-product-form-component>
